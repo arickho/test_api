@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"html"
 	"log"
@@ -27,7 +28,13 @@ func Index(w http.ResponseWriter, r *http.Request) {
 
 // TodoIndex - the todo splash
 func TodoIndex(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "Todo Index!")
+
+	todos := Todos{
+		Todo{Name: "Write presentation"},
+		Todo{Name: "Host meetup "},
+	}
+
+	json.NewEncoder(w).Encode(todos)
 }
 
 // TodoShow - todo detail
