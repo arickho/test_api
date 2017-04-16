@@ -6,9 +6,11 @@ import (
 )
 
 var currentID int
+
+// Todos - collection that the server accesses
 var Todos domain.Todos
 
-// Give us some seed data
+// Init - Initializes a data seed.
 func Init() {
 	RepoCreateTodo(domain.Todo{Name: "Write presentation"})
 	RepoCreateTodo(domain.Todo{Name: "Host meetup"})
