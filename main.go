@@ -20,14 +20,17 @@ func main() {
 	log.Fatal(http.ListenAndServe(":8080", router))
 }
 
+// Index - api splash
 func Index(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Hello, %q", html.EscapeString(r.URL.Path))
 }
 
+// TodoIndex - the todo splash
 func TodoIndex(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintln(w, "Todo Index!")
 }
 
+// TodoShow - todo detail
 func TodoShow(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	todoId := vars["todoId"]
